@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='../lib/fullcalendar.min.css' rel='stylesheet' />
+<link href='../lib/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<link href='../scheduler.min.css' rel='stylesheet' />
+<link href='css/style.css' rel='stylesheet' />
+<script src='../lib/moment.min.js'></script>
+<script src='../lib/jquery.min.js'></script>
+<script src='../lib/fullcalendar.min.js'></script>
+<script src='../scheduler.min.js'></script>
+
+<script>
+
+	$(function() { // document ready
+
+		$('#calendar').fullCalendar({
+			now: '2016-06-13',
+			editable: true, // enable draggable events
+			aspectRatio: 1.8,
+			scrollTime: '09:00', // undo default 6am scrollTime
+			header: {
+				left: 'today prev,next',
+				center: 'title',
+				right: 'timelineDay,timelineThreeDays,agendaWeek,month,listWeek'
+			},
+			defaultView: 'agendaWeek',
+			views: {
+				timelineThreeDays: {
+					type: 'timeline',
+					duration: { days: 3 }
+				}
+			},
+			eventOrder:'id',
+			firstDay:1,
+			resourceLabelText: 'Teams',
+			resources: [
+				{id: 'd', title: 'Team 0', eventColor: '#FF336D' },
+				{ id: 'a', title: 'Team 1' , eventColor:'#D033FF'},
+				{ id: 'c', title: 'team 2', eventColor:'#FF33E0'},
+				{ id: 'l', title: 'team 8', eventColor:'#479B49' },
+				{ id: 'm', title: 'team 6', eventColor:'#A40D5A' },
+				{ id: 'n', title: 'team 11', eventColor:'#893F4A' },
+				{ id: 'o', title: 'team 7', eventColor:'#8CA1A1'},
+				{ id: 'p', title: 'team 9', eventColor:"#3a87ad" },
+				{ id: 'r', title: 'team 3', eventColor:'#333BFF' },
+				{ id: 's', title: 'team 4' , eventColor:'#8E33FF'},
+				{ id: 't', title: 'team 5' , eventColor:'#FF3333'},
+				{ id: 'q', title: 'team 10' , eventColor:'#CED007'}
+				
+			],
+		events: [
+				{ id: 'a', resourceId: 'a' ,      start: '2016-06-13T09:00:00', end: '2016-06-13T10:00:00', title: 'team 1' },
+				{ id: 'b', resourceId: 'a' , 	  start: '2016-06-13T10:00:00', end: '2016-06-13T11:00:00', title: 'team 1' },
+				{ id: 'c', resourceId: 'a' , 	  start: '2016-06-13T11:00:00', end: '2016-06-13T12:00:00', title: 'team 1' },
+				{ id: 'd', resourceId: 'a' , 	  start: '2016-06-13T12:00:00', end: '2016-06-13T13:00:00', title: 'team 1' },
+				{ id: 'e', resourceId: 'a' , 	  start: '2016-06-13T13:00:00', end: '2016-06-13T14:00:00', title: 'team 1' },
+				{ id: 'f', resourceId: 'a' , 	  start: '2016-06-13T14:00:00', end: '2016-06-13T15:00:00', title: 'team 1' },
+				{ id: 'g', resourceId: 'a' , 	  start: '2016-06-13T15:00:00', end: '2016-06-13T16:00:00', title: 'team 1' },
+				{ id: 'h', resourceId: 'a' , 	  start: '2016-06-13T16:00:00', end: '2016-06-13T17:00:00', title: 'team 1' },
+				{ id: 'i', resourceId: 'a' ,	  start: '2016-06-13T17:00:00', end: '2016-06-13T18:00:00', title: 'team 1' },
+				{ id: 'j', resourceId: 'c' ,      start: '2016-06-13T18:00:00', end: '2016-06-13T19:00:00', title: 'team 2' },
+				{ id: 'a', resourceId: 'c' ,   start: '2016-06-14T09:00:00', end: '2016-06-14T10:00:00', title: 'team 2' },
+				{ id: 'b', resourceId: 'a' ,   start: '2016-06-14T10:00:00', end: '2016-06-14T11:00:00', title: 'team 1' },
+				{ id: 'c', resourceId: 'a' ,   start: '2016-06-14T11:00:00', end: '2016-06-14T12:00:00', title: 'team 1' },
+				{ id: 'd', resourceId: 't' , 	  start: '2016-06-14T12:00:00', end: '2016-06-14T13:00:00', title: 'team 5' },
+				{ id: 'e', resourceId: 't' , 	  start: '2016-06-14T13:00:00', end: '2016-06-14T14:00:00', title: 'team 5' },
+				{ id: 'f', resourceId: 't' , 	  start: '2016-06-14T14:00:00', end: '2016-06-14T15:00:00', title: 'team 5' },
+				{ id: 'g', resourceId: 't' , 	  start: '2016-06-14T15:00:00', end: '2016-06-14T16:00:00', title: 'team 5' },
+				{ id: 'h', resourceId: 's' , 	  start: '2016-06-14T16:00:00', end: '2016-06-14T17:00:00', title: 'team 4' },
+				{ id: 'i', resourceId: 's' , 	  start: '2016-06-14T17:00:00', end: '2016-06-14T18:00:00', title: 'team 4' },
+				{ id: 'j', resourceId: 'c' , 	  start: '2016-06-14T18:00:00', end: '2016-06-14T19:00:00', title: 'team 2' },
+				{ id: 'a',  resourceId: 'c' ,   start: '2016-06-15T09:00:00', end: '2016-06-15T10:00:00', title: 'team 2' },
+				{ id: 'b', resourceId: 'r' ,   start: '2016-06-15T10:00:00', end: '2016-06-15T11:00:00', title: 'team 3' },
+				{ id: 'c', resourceId: 'r' , 	  start: '2016-06-15T11:00:00', end: '2016-06-15T12:00:00', title: 'team 3' },
+				{ id: 'd', resourceId: 'a' , 	  start: '2016-06-15T12:00:00', end: '2016-06-15T13:00:00', title: 'team 1' },
+				{ id: 'e', resourceId: 'a' , 	  start: '2016-06-15T13:00:00', end: '2016-06-15T14:00:00', title: 'team 1' },
+				{ id: 'f', resourceId: 'a' , 	  start: '2016-06-15T14:00:00', end: '2016-06-15T15:00:00', title: 'team 1' },
+				{ id: 'g', resourceId: 'a' , 	  start: '2016-06-15T15:00:00', end: '2016-06-15T16:00:00', title: 'team 1' },
+				{ id: 'h', resourceId: 'a' ,   start: '2016-06-15T16:00:00', end: '2016-06-15T17:00:00', title: 'team 1' },
+				{ id: 'i', resourceId: 'a' ,   start: '2016-06-15T17:00:00', end: '2016-06-15T18:00:00', title: 'team 1' },
+				{ id: 'j', resourceId: 'c' , 	  start: '2016-06-15T18:00:00', end: '2016-06-15T19:00:00', title: 'team 2' },
+				{ id: 'a',  resourceId: 'c' , 	  start: '2016-06-16T08:00:00', end: '2016-06-16T09:00:00', title: 'team 2' },
+				{ id: 'b',  resourceId: 'c' , 	  start: '2016-06-16T09:00:00', end: '2016-06-16T10:00:00', title: 'team 2' },
+				{ id: 'c', resourceId: 'r' ,   start: '2016-06-16T10:00:00', end: '2016-06-16T11:00:00', title: 'team 3' },
+				{ id: 'd', resourceId: 'r' ,   start: '2016-06-16T11:00:00', end: '2016-06-16T12:00:00', title: 'team 3' },
+				{ id: 'e', resourceId: 'q' ,  start: '2016-06-16T12:00:00', end: '2016-06-16T13:00:00', title: 'team 10' },
+				{ id: 'f', resourceId: 'a' ,   start: '2016-06-16T13:00:00', end: '2016-06-16T14:00:00', title: 'team 1' },
+				{ id: 'g', resourceId: 'a' , 	  start: '2016-06-16T14:00:00', end: '2016-06-16T15:00:00', title: 'team 1' },
+				{ id: 'h', resourceId: 'a' , 	  start: '2016-06-16T15:00:00', end: '2016-06-16T16:00:00', title: 'team 1' },
+				{ id: 'i', resourceId: 'a' ,   start: '2016-06-16T16:00:00', end: '2016-06-16T17:00:00', title: 'team 1' },
+				{ id: 'j', resourceId: 'a' , 	  start: '2016-06-16T17:00:00', end: '2016-06-16T18:00:00', title: 'team 1' },
+				{ id: 'k', resourceId: 'c' , 	  start: '2016-06-16T18:00:00', end: '2016-06-16T19:00:00', title: 'team 2' },
+				{ id: 'a',  resourceId: 'c' , 	  start: '2016-06-17T09:00:00', end: '2016-06-17T10:00:00', title: 'team 2' },
+				{ id: 'b', resourceId: 'a' , 	  start: '2016-06-17T10:00:00', end: '2016-06-17T11:00:00', title: 'team 1' },
+				{ id: 'c', resourceId: 'a' , 	  start: '2016-06-17T11:00:00', end: '2016-06-17T12:00:00', title: 'team 1' },
+				{ id: 'd', resourceId: 'a' , 	  start: '2016-06-17T12:00:00', end: '2016-06-17T13:00:00', title: 'team 1' },
+				{ id: 'e', resourceId: 'a' , 	  start: '2016-06-17T13:00:00', end: '2016-06-17T14:00:00', title: 'team 1' },
+				{ id: 'f', resourceId: 'a' , 	  start: '2016-06-17T14:00:00', end: '2016-06-17T15:00:00', title: 'team 1' },
+				{ id: 'g', resourceId: 'a' ,   start: '2016-06-17T15:00:00', end: '2016-06-17T16:00:00', title: 'team 1' },
+				{ id: 'h', resourceId: 'a' ,   start: '2016-06-17T16:00:00', end: '2016-06-17T17:00:00', title: 'team 1' },
+				{ id: 'i', resourceId: 'a' , 	  start: '2016-06-17T17:00:00', end: '2016-06-17T18:00:00', title: 'team 1' },
+				{ id: 'j', resourceId: 'd' , 	  start: '2016-06-17T18:00:00', end: '2016-06-17T19:00:00', title: 'team 0' },
+				{ id: 'k', resourceId: 'd' ,   start: '2016-06-17T19:00:00', end: '2016-06-17T20:00:00', title: 'team 0' },
+				{ id: 'l', resourceId: 'c' , 	  start: '2016-06-17T20:00:00', end: '2016-06-17T21:00:00', title: 'team 2' },
+				{ id: 'a', resourceId: 'c' , 	  start: '2016-06-18T08:00:00', end: '2016-06-18T09:00:00', title: 'team 2' },
+				{ id: 'b', resourceId: 'd' , 	  start: '2016-06-18T09:00:00', end: '2016-06-18T10:00:00', title: 'team 0' },
+				{ id: 'c', resourceId: 'd' , 	  start: '2016-06-18T10:00:00', end: '2016-06-18T11:00:00', title: 'team 0' },
+				{ id: 'd', resourceId: 'd' , 	  start: '2016-06-18T11:00:00', end: '2016-06-18T12:00:00', title: 'team 0' },
+				{ id: 'e', resourceId: 'a' ,   start: '2016-06-18T12:00:00', end: '2016-06-18T13:00:00', title: 'team 1' },
+				{ id: 'f', resourceId: 'a' ,   start: '2016-06-18T13:00:00', end: '2016-06-18T14:00:00', title: 'team 1' },
+				{ id: 'g', resourceId: 'a' , 	  start: '2016-06-18T14:00:00', end: '2016-06-18T15:00:00', title: 'team 1' },
+				{ id: 'h', resourceId: 'a' ,   start: '2016-06-18T15:00:00', end: '2016-06-18T16:00:00', title: 'team 1' },
+				{ id: 'i', resourceId: 'a' , 	  start: '2016-06-18T16:00:00', end: '2016-06-18T17:00:00', title: 'team 1' },
+				{ id: 'j', resourceId: 'a' , 	  start: '2016-06-18T17:00:00', end: '2016-06-18T18:00:00', title: 'team 1' },
+				{ id: 'k', resourceId: 'c' , 	  start: '2016-06-18T18:00:00', end: '2016-06-18T19:00:00', title: 'team 2' },
+				{ id: 'a', resourceId: 's' ,   start: '2016-06-19T10:00:00', end: '2016-06-19T11:00:00', title: 'team 4' },
+				{ id: 'b', resourceId: 's' ,   start: '2016-06-19T11:00:00', end: '2016-06-19T12:00:00', title: 'team 4' },
+				{ id: 'c', resourceId: 's' ,   start: '2016-06-19T12:00:00', end: '2016-06-19T13:00:00', title: 'team 4' },
+				{ id: 'd', resourceId: 's' , 	  start: '2016-06-19T13:00:00', end: '2016-06-19T14:00:00', title: 'team 4' },
+				{ id: 'e', resourceId: 's' ,  start: '2016-06-19T14:00:00', end: '2016-06-19T15:00:00', title: 'team 4' },
+				{ id: 'f', resourceId: 's' , 	  start: '2016-06-19T15:00:00', end: '2016-06-19T16:00:00', title: 'team 4' },
+				{ id: 'g', resourceId: 's' , 	  start: '2016-06-19T16:00:00', end: '2016-06-19T17:00:00', title: 'team 4' },
+				
+				{ id: 'k', resourceId: 'p' ,      start: '2016-06-13T09:00:00', end: '2016-06-13T10:00:00', title: 'team 9' },
+				{ id: 'l', resourceId: 'p' , 	  start: '2016-06-13T10:00:00', end: '2016-06-13T11:00:00', title: 'team 9' },
+				{ id: 'm', resourceId: 'p' , 	  start: '2016-06-13T11:00:00', end: '2016-06-13T12:00:00', title: 'team 9' },
+				{ id: 'n', resourceId: 'p' , 	  start: '2016-06-13T12:00:00', end: '2016-06-13T13:00:00', title: 'team 9' },
+				{ id: 'o', resourceId: 'c' , 	  start: '2016-06-13T13:00:00', end: '2016-06-13T14:00:00', title: 'team 2' },
+				{ id: 'p', resourceId: 'o' , 	  start: '2016-06-13T14:00:00', end: '2016-06-13T15:00:00', title: 'team 7' },
+				{ id: 'q', resourceId: 'o' , 	  start: '2016-06-13T15:00:00', end: '2016-06-13T16:00:00', title: 'team 7' },
+				{ id: 'r', resourceId: 'o' , 	  start: '2016-06-13T16:00:00', end: '2016-06-13T17:00:00', title: 'team 7' },
+				{ id: 's', resourceId: 'p' ,	  start: '2016-06-13T17:00:00', end: '2016-06-13T18:00:00', title: 'team 9' },
+				{ id: 't', resourceId: 'p' ,      start: '2016-06-13T18:00:00', end: '2016-06-13T19:00:00', title: 'team 9' },
+				{ id: 'k', resourceId: 'p' ,   start: '2016-06-14T09:00:00', end: '2016-06-14T10:00:00', title: 'team 9' },
+				{ id: 'l', resourceId: 'c' ,   start: '2016-06-14T10:00:00', end: '2016-06-14T11:00:00', title: 'team 2' },
+				{ id: 'm', resourceId: 'p' ,   start: '2016-06-14T11:00:00', end: '2016-06-14T12:00:00', title: 'team 9' },
+				{ id: 'n', resourceId: 'n' , 	  start: '2016-06-14T12:00:00', end: '2016-06-14T13:00:00', title: 'team 11' },
+				{ id: 'o', resourceId: 'm' , 	  start: '2016-06-14T13:00:00', end: '2016-06-14T14:00:00', title: 'team 6' },
+				{ id: 'p', resourceId: 'm' , 	  start: '2016-06-14T14:00:00', end: '2016-06-14T15:00:00', title: 'team 6' },
+				{ id: 'q', resourceId: 'c' , 	  start: '2016-06-14T15:00:00', end: '2016-06-14T16:00:00', title: 'team 2' },
+				{ id: 'r', resourceId: 'p' , 	  start: '2016-06-14T16:00:00', end: '2016-06-14T17:00:00', title: 'team 9' },
+				{ id: 's', resourceId: 'p' , 	  start: '2016-06-14T17:00:00', end: '2016-06-14T18:00:00', title: 'team 9' },
+				{ id: 't', resourceId: 'p' , 	  start: '2016-06-14T18:00:00', end: '2016-06-14T19:00:00', title: 'team 9' },
+				{ id: 'k',  resourceId: 'p' ,   start: '2016-06-15T09:00:00', end: '2016-06-15T10:00:00', title: 'team 9' },
+				{ id: 'l', resourceId: 'o' ,   start: '2016-06-15T10:00:00', end: '2016-06-15T11:00:00', title: 'team 7' },
+				{ id: 'm', resourceId: 'l' , 	  start: '2016-06-15T11:00:00', end: '2016-06-15T12:00:00', title: 'team 8' },
+				{ id: 'n', resourceId: 'o' , 	  start: '2016-06-15T12:00:00', end: '2016-06-15T13:00:00', title: 'team 7' },
+				{ id: 'o', resourceId: 'm' , 	  start: '2016-06-15T13:00:00', end: '2016-06-15T14:00:00', title: 'team 6' },
+				{ id: 'p', resourceId: 'o' , 	  start: '2016-06-15T14:00:00', end: '2016-06-15T15:00:00', title: 'team 7' },
+				{ id: 'q', resourceId: 'm' , 	  start: '2016-06-15T15:00:00', end: '2016-06-15T16:00:00', title: 'team 6' },
+				{ id: 'r', resourceId: 'o' ,   start: '2016-06-15T16:00:00', end: '2016-06-15T17:00:00', title: 'team 7' },
+				{ id: 's', resourceId: 'p' ,   start: '2016-06-15T17:00:00', end: '2016-06-15T18:00:00', title: 'team 9' },
+				{ id: 't', resourceId: 'p' , 	  start: '2016-06-15T18:00:00', end: '2016-06-15T19:00:00', title: 'team 9' },
+				{ id: 'l',  resourceId: 'p' , 	  start: '2016-06-16T08:00:00', end: '2016-06-16T09:00:00', title: 'team 9' },
+				{ id: 'm',  resourceId: 'p' , 	  start: '2016-06-16T09:00:00', end: '2016-06-16T10:00:00', title: 'team 9' },
+				{ id: 'n', resourceId: 'p' ,   start: '2016-06-16T10:00:00', end: '2016-06-16T11:00:00', title: 'team 9' },
+				{ id: 'o', resourceId: 'l' ,   start: '2016-06-16T11:00:00', end: '2016-06-16T12:00:00', title: 'team 8' },
+				{ id: 'p', resourceId: 'm' ,  start: '2016-06-16T12:00:00', end: '2016-06-16T13:00:00', title: 'team 6' },
+				{ id: 'q', resourceId: 'p' ,   start: '2016-06-16T13:00:00', end: '2016-06-16T14:00:00', title: 'team 9' },
+				{ id: 'r', resourceId: 'p' , 	  start: '2016-06-16T14:00:00', end: '2016-06-16T15:00:00', title: 'team 9' },
+				{ id: 's', resourceId: 'o' , 	  start: '2016-06-16T15:00:00', end: '2016-06-16T16:00:00', title: 'team 7' },
+				{ id: 't', resourceId: 'o' ,   start: '2016-06-16T16:00:00', end: '2016-06-16T17:00:00', title: 'team 7' },
+				{ id: 'u', resourceId: 'o' , 	  start: '2016-06-16T17:00:00', end: '2016-06-16T18:00:00', title: 'team 7' },
+				{ id: 'v', resourceId: 'p' , 	  start: '2016-06-16T18:00:00', end: '2016-06-16T19:00:00', title: 'team 9' },
+				{ id: 'm',  resourceId: 'p' , 	  start: '2016-06-17T09:00:00', end: '2016-06-17T10:00:00', title: 'team 9' },
+				{ id: 'n', resourceId: 'o' , 	  start: '2016-06-17T10:00:00', end: '2016-06-17T11:00:00', title: 'team 7' },
+				{ id: 'o', resourceId: 'l' , 	  start: '2016-06-17T11:00:00', end: '2016-06-17T12:00:00', title: 'team 8' },
+				{ id: 'p', resourceId: 'm' , 	  start: '2016-06-17T12:00:00', end: '2016-06-17T13:00:00', title: 'team 6' },
+				{ id: 'q', resourceId: 'c' , 	  start: '2016-06-17T13:00:00', end: '2016-06-17T14:00:00', title: 'team 2' },
+				{ id: 'r', resourceId: 'o' , 	  start: '2016-06-17T14:00:00', end: '2016-06-17T15:00:00', title: 'team 7' },
+				{ id: 's', resourceId: 'm' ,   start: '2016-06-17T15:00:00', end: '2016-06-17T16:00:00', title: 'team 6' },
+				{ id: 't', resourceId: 'o' ,   start: '2016-06-17T16:00:00', end: '2016-06-17T17:00:00', title: 'team 7' },
+				{ id: 'u', resourceId: 'p' , 	  start: '2016-06-17T17:00:00', end: '2016-06-17T18:00:00', title: 'team 9' },
+				{ id: 'v', resourceId: 'p' , 	  start: '2016-06-17T18:00:00', end: '2016-06-17T19:00:00', title: 'team 9' },
+				{ id: 'w', resourceId: 'm' ,   start: '2016-06-17T19:00:00', end: '2016-06-17T20:00:00', title: 'team 6' },
+				{ id: 'x', resourceId: 'p' , 	  start: '2016-06-17T20:00:00', end: '2016-06-17T21:00:00', title: 'team 9' },
+				{ id: 'l', resourceId: 'p' , 	  start: '2016-06-18T08:00:00', end: '2016-06-18T09:00:00', title: 'team 9' },
+				{ id: 'm', resourceId: 'c' , 	  start: '2016-06-18T09:00:00', end: '2016-06-18T10:00:00', title: 'team 2' },
+				{ id: 'n', resourceId: 'm' , 	  start: '2016-06-18T10:00:00', end: '2016-06-18T11:00:00', title: 'team 6' },
+				{ id: 'o', resourceId: 'm' , 	  start: '2016-06-18T11:00:00', end: '2016-06-18T12:00:00', title: 'team 6' },
+				{ id: 'p', resourceId: 'o' ,   start: '2016-06-18T12:00:00', end: '2016-06-18T13:00:00', title: 'team 7' },
+				{ id: 'q', resourceId: 'm' ,   start: '2016-06-18T13:00:00', end: '2016-06-18T14:00:00', title: 'team 6' },
+				{ id: 'r', resourceId: 'o' , 	  start: '2016-06-18T14:00:00', end: '2016-06-18T15:00:00', title: 'team 7' },
+				{ id: 's', resourceId: 'n' ,   start: '2016-06-18T15:00:00', end: '2016-06-18T16:00:00', title: 'team 11' },
+				{ id: 't', resourceId: 'p' , 	  start: '2016-06-18T16:00:00', end: '2016-06-18T17:00:00', title: 'team 9' },
+				{ id: 'u', resourceId: 'm' , 	  start: '2016-06-18T17:00:00', end: '2016-06-18T18:00:00', title: 'team 6' },
+				{ id: 'v', resourceId: 'c' , 	  start: '2016-06-18T18:00:00', end: '2016-06-18T19:00:00', title: 'team 2' },
+				{ id: 'h', resourceId: 'p' ,   start: '2016-06-19T10:00:00', end: '2016-06-19T11:00:00', title: 'team 9' },
+				{ id: 'i', resourceId: 'c' ,   start: '2016-06-19T11:00:00', end: '2016-06-19T12:00:00', title: 'team 2' },
+				{ id: 'j', resourceId: 'p' ,   start: '2016-06-19T12:00:00', end: '2016-06-19T13:00:00', title: 'team 9' },
+				{ id: 'k', resourceId: 'c' , 	  start: '2016-06-19T13:00:00', end: '2016-06-19T14:00:00', title: 'team 2' },
+				{ id: 'l', resourceId: 'o' ,  start: '2016-06-19T14:00:00', end: '2016-06-19T15:00:00', title: 'team 7' },
+				{ id: 'm', resourceId: 'l' , 	  start: '2016-06-19T15:00:00', end: '2016-06-19T16:00:00', title: 'team 8' },
+				{ id: 'n', resourceId: 'p' , 	  start: '2016-06-19T16:00:00', end: '2016-06-19T17:00:00', title: 'team 9' }
+				
+			]
+		});
+		var spans = $('.fc-content .fc-time span');
+		spans.empty(); 	
+		
+		$( ".fc-agendaWeek-button" ).click(function() {
+		
+			var spans = $('.fc-content .fc-time span');
+			spans.empty(); 	
+		});
+	});
+
+
+</script>
+
+</head>
+	<body>
+			<div>	
+				<div style="width:100%; background-color:#dddddd; height:25px;">
+					<h2 style="text-align: center;">Comparison between the current and the optimal solution</h2>
+				</div>
+				
+					<div style="width: 30%; float:left;margin-top:50px;margin-left:20px;">
+					
+						<table>
+							<tr>
+								<th>Team</th>
+								<th>Composition</th>
+							</tr>
+							<tr>
+								<td style="background-color:#FF336D">0</td>
+								<td>1 Verkoper 1-5</td>
+							</tr>
+							<tr>
+								<td style="background-color:#D033FF">1</td>
+								<td>1 Verkoper <1; 1 Verkoper 1-5</td>
+							</tr>
+							<tr>
+								<td style="background-color:#FF33E0">2</td>
+								<td>No one</td>
+							</tr>
+							<tr>
+								<td style="background-color:#333BFF">3</td>
+								<td>1 Verkoper < 1; 2 Verkoper 1-5</td>
+							</tr>
+							<tr>
+								<td style="background-color:#8E33FF">4</td>
+								<td>2 Verkoper < 1</td>
+							</tr>
+							<tr>
+								<td style="background-color:#FF3333">5</td>
+								<td>2 Verkoper < 1; 1 Verkoper 1-5</td>
+							</tr>
+							<tr>
+								<td style="background-color:#A40D5A">6</td>
+								<td>1 Shopmanager 5-10;1 Weekendhulp < 1; 1 Shopmanager < 1</td>
+							</tr>
+							<tr>
+								<td style="background-color:#8CA1A1">7</td>
+								<td>1 Weekendhulp 5-10</td>
+							</tr>
+							<tr>
+								<td style="background-color:#479B49">8</td>
+								<td>1 Shopmanager >10</td>
+							</tr>
+							<tr>
+								<td style="background-color:#3a87ad">9</td>
+								<td>1 Weekendhulp 1-5; 1 Weekendhulp <1</td>
+							</tr>
+							<tr>
+								<td style="background-color:#CED007">10</td>
+								<td>2 Verkoper 1-5;2 Verkoper <1;</td>
+							</tr>
+							<tr>
+								<td style="background-color:#893F4A">11</td>
+								<td>1 Shopmanager 5-10; 1 Weekendhulp <1;
+									1 Verkoper <1;1 Verkoper 1-5</td>
+							</tr>
+						</table>
+						</br>
+						
+					</div>
+					<div style="width: 60%; float:right">
+					
+						<div id='calendar'></div>
+					</div>
+				<table>
+							<tr>
+								<td>Employee type
+								</td>
+								<td>Shopmanager > 10
+								</td>
+								<td>Shopmanager 5-10
+								</td>
+								<td>Shopmanager 1-5
+								</td>
+								<td>Shopmanager <1
+								</td>
+								<td>Verkoper >10
+								</td>
+								<td>Verkoper 5-10
+								</td>
+								<td>Verkoper 1-5
+								</td>
+								<td>Verkoper <1
+								</td>
+								<td>Weekendhulp 5-10
+								</td>
+								<td>Weekendhulp 1-5
+								</td>
+								<td>Weekendhulp < 1
+								</td>
+							</tr>
+							<tr>
+								<td>Percentage %</td><td>0/6</td><td>0/11.3</td><td>28.3/3</td><td>0/12.3</td><td>3.9/1</td><td>0.1/0</td>
+								<td>23.9/4</td><td>32.1/4</td><td>0/7.5</td><td>0/18.3</td><td>11.7/32.6</td>
+							</tr>
+				</table>	
+			</div>
+	</body>
+</html>
