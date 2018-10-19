@@ -1,2 +1,2 @@
-# simple_fullcalendar_trial
+# fullcalendar
 #Implementation of fullcallendar.js
